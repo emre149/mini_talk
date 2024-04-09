@@ -5,36 +5,51 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/09 22:53:13 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/09 22:54:02 by ededemog         ###   ########.fr        #
+#    Created: 2024/01/06 10:59:06 by ededemog          #+#    #+#              #
+#    Updated: 2024/04/08 23:24:17 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-NAME = mini_talk
-SRCS = 
-OBJS = $(SRCS:.c=.o)
-#MAIN_SRC = src/main/push_swap.c
-#MAIN_OBJ = $(MAIN_SRC:.c=.o)
+CFLAGS = -Wall -Werror -Wextra
+EXEC = prog
+SRCS = ft_printf.c ft_printf_utils.c other_utils.c
+BONUS	=	
+MAIN	=	main.c
 
-all: $(NAME)
+OBJB	=	$(BONUS:.c=.o)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+OBJM	=	$(MAIN:.c=.o)
 
-$(MAIN_OBJ): $(MAIN_SRC)
-	$(CC) $(CFLAGS) -c $(MAIN_SRC) -o $(MAIN_OBJ)
+TNAME	= 	test
 
-$(NAME): $(OBJS) $(MAIN_OBJ)
-	$(CC) $(CFLAGS) $(OBJS) $(MAIN_OBJ) -o $(NAME)
+OBJS 	= 	$(SRCS:.c=.o)
+
+AR		= 	ar rc
+
+RM		= 	rm -f
+
+.c.o:
+			$(CC) $(CFLAGS) -o $(<:.c=.o) -c $<
+
+$(NAME):	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
+
+test:		$(NAME) bonus
+			$(CC) $(CFLAGS) -o $(TNAME) $(MAIN) -L. -lft
+
+all:		$(NAME)
+
+bonus:		$(OBJB)
+			$(AR) $(NAME) $(OBJB)
 
 clean:
-	$(RM) $(OBJS) $(MAIN_OBJ)
+			$(RM) $(OBJS) $(OBJM) $(OBJB)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:		clean
+			$(RM) $(NAME) $(TNAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re test
