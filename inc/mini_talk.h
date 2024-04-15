@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   mini_talk.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/06 11:04:14 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/15 15:27:18 by ededemog         ###   ########.fr       */
+/*   Created: 2024/04/09 22:57:12 by ededemog          #+#    #+#             */
+/*   Updated: 2024/04/09 22:58:38 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef MINI_TALK_H
+# define MINI_TALK_H
+
+/*INCLUDES*/
 
 # include <unistd.h>
-# include <stddef.h>
 # include <stdlib.h>
+# include <string.h>
+# include <stdbool.h>
+# include <limits.h>
 # include <sys/types.h>
-# include <stdarg.h>
+# include <stddef.h>
+# include "ft_printf/ft_printf.h"
 
-int		ft_printf(const char *format, ...);
-
-int	print_format(char *specifier, va_list ptr);
-
-int		ft_putchar(int c);
-
-int		ft_putstr(char *str);
-
-int		ft_putdigit(long n, int base, char specifier);
-
-int		ft_putudigit(unsigned long n);
-
-int		ft_putptr(unsigned long n, char specifier);
-
-int		ptr_null(unsigned long long p, char specifier);
-
-int     ft_strcmp(const char *first, const char *second);
 
 #endif
