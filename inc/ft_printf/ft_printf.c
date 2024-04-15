@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:41:26 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/15 15:29:14 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:58:42 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			specifier[0] = *(++format); // Stocker le premier caractère après %
-			if (*format == 'l') // Vérifier si c'est un long
+			specifier[0] = *(++format);
+			if (*format == 'l')
 			{
-				specifier[1] = *(++format); // Stocker le deuxième caractère après %l
-				specifier[2] = '\0'; // Terminer la chaîne
+				specifier[1] = *(++format);
+				specifier[2] = '\0';
 			}
 			counter += print_format(specifier, pointer);
 		}
