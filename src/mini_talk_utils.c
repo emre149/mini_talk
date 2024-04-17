@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   mini_talk_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/15 17:04:05 by ededemog         ###   ########.fr       */
+/*   Created: 2024/04/17 15:42:28 by ededemog          #+#    #+#             */
+/*   Updated: 2024/04/17 15:59:53 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mini_talk.h"
-#include "../inc/ft_printf/ft_printf.h"
-
-int main(int argc, char **argv)
+int     ft_atoi(char *nb)
 {
-    
+    int     n;
+    int     sign;
+
+    n = nb;
+    sign = 1;
+    while (str* >=  )
 }

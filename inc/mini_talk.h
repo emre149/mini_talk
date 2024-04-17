@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:57:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/09 22:58:38 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:20:02 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <limits.h>
 # include <sys/types.h>
 # include <stddef.h>
+# include <signal.h>
 # include "ft_printf/ft_printf.h"
 
 
