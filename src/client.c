@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/18 17:24:02 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:51:08 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    signal_sender(int pid, unsigned char c)
 int main(int argc, char **argv)
 {
     pid_t   server_pid;
-    char    *message;
+    const char    *message;
     int     byte;
 
     server_pid = ft_atoi(argv[1]);
