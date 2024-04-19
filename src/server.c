@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:55:07 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/19 14:11:52 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:24:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ void    signal_handler(int sig)
 
 int main(void)
 {
-
+    ft_printf("PID of the server : %ld", getpid());
+    signal(SIGUSR1, signal_handler);
+    signal(SIGUSR2, signal_handler);
+    while (1)
+        pause();
+    return (0);
 }
