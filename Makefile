@@ -6,15 +6,19 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/19 15:05:23 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/19 15:05:26 by ededemog         ###   ########.fr        #
+#    Updated: 2024/04/19 20:13:33 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-CLIENT_SRCS = src/client.c src/mini_talk_utils.o inc/ft_printf/ft_printf_utils.o inc/ft_printf/ft_printf.o inc/ft_printf/other_utils.o
-SERVER_SRCS = src/server.c src/mini_talk_utils.o inc/ft_printf/ft_printf_utils.o inc/ft_printf/ft_printf.o inc/ft_printf/other_utils.o
+CLIENT_SRCS = src/client.c src/mini_talk_utils.o \
+				inc/ft_printf/ft_printf_utils.o inc/ft_printf/ft_printf.o \
+				inc/ft_printf/other_utils.o
+SERVER_SRCS = src/server.c src/mini_talk_utils.o \
+				inc/ft_printf/ft_printf_utils.o inc/ft_printf/ft_printf.o \
+				inc/ft_printf/other_utils.o
 CLIENT_NAME = client
 SERVER_NAME = server
 

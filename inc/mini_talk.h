@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:57:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/17 16:08:01 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:38:35 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # include "ft_printf/ft_printf.h"
 
 int     ft_atoi(const char *str);
+
+void    reception_handler(int sig);
 
 #endif
