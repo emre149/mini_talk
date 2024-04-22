@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/22 14:57:55 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:03:32 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ void    signal_sender(int pid, unsigned char c)
 
 void    reception_handler(int sig)
 {
-    if (sig == SIGUSR1)
-        ft_printf("1\n");
-    else if (sig == SIGUSR2)
-        ft_printf("0\n");
+	if (sig == SIGUSR1)
+		ft_printf("Message succesfully received.\n");
 }
 
 int main(int argc, char **argv)
@@ -55,13 +53,10 @@ int main(int argc, char **argv)
 
     server_pid = ft_atoi(argv[1]);
     message = argv[2];
-    byte = 0;
+    byte = -1;
     
-    while (message[byte] != '\0')
-    {
+    while (message[++byte] != '\0')
         signal_sender(server_pid, message[byte]);
-        byte++;
-    }
     signal_sender(server_pid, '\0');
     return (0);
 }
