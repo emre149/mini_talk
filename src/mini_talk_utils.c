@@ -6,11 +6,11 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:42:28 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/17 16:07:42 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:12:14 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			i;
 	long		nb;

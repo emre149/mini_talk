@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:23:19 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/15 15:43:36 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:41:33 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	print_format(char *specifier, va_list ptr)
 		i += ft_putudigit(va_arg(ptr, unsigned int));
 	else if (ft_strcmp(specifier, "p") == 0 || ft_strcmp(specifier, "P") == 0)
 		i += ptr_null(va_arg(ptr, unsigned long long), specifier[0]);
-    else if (ft_strcmp(specifier, "ld") == 0 || ft_strcmp(specifier, "li") == 0)
+	else if (ft_strcmp(specifier, "ld") == 0
+		|| ft_strcmp(specifier, "li") == 0)
 		i += ft_putdigit(va_arg(ptr, long int), 10, specifier[1]);
 	else
 		i += write(1, specifier, 1);

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:57:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/22 15:39:36 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:39:31 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@
 # include <signal.h>
 # include "ft_printf/ft_printf.h"
 
-int     ft_atoi(const char *str);
-
-void    reception_handler(int sig);
+int		ft_atoi(const char *str);
+void	reception_handler(int sig);
 
 #endif
