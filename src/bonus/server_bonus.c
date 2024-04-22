@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:25:34 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/22 14:49:45 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:58:44 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void    signal_handler(int sig, siginfo_t *info, void *context)
 {
+    (void)context;
     static unsigned char actual_char;
     static int  bit_position;
 
@@ -33,8 +34,10 @@ void    signal_handler(int sig, siginfo_t *info, void *context)
     }
     else
         actual_char <<= 1;
-	if (signal == SIGUSR1)
-		kill(info-)
+	if (sig == SIGUSR1)
+		kill(info->si_pid, SIGUSR1);
+    else if (sig == SIGUSR2)
+        kill(info->si_pid, SIGUSR2);
 }
 
 int main(void)

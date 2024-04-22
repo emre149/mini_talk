@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/22 14:24:47 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:57:55 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void    signal_sender(int pid, unsigned char c)
 
 void    reception_handler(int sig)
 {
-    if (signal == SIGUSR1)
+    if (sig == SIGUSR1)
         ft_printf("1\n");
-    else if (signal == SIGUSR2)
+    else if (sig == SIGUSR2)
         ft_printf("0\n");
 }
 
