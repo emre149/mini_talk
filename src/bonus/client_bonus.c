@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/20 13:38:09 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:24:47 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ int main(int argc, char **argv)
 
 	signal(SIGUSR1, reception_handler);
 	signal(SIGUSR2, reception_handler);
+
     if (argc != 3)
     {
         ft_printf("Format : ./client <PID> <MESSAGE_TO_SEND>\n");
         exit(0);
     }
-    
+
     server_pid = ft_atoi(argv[1]);
     message = argv[2];
     byte = 0;
     
-
     while (message[byte] != '\0')
     {
         signal_sender(server_pid, message[byte]);
