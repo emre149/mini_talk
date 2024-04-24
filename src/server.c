@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:55:07 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/24 16:29:30 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:00:52 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_binary_handler(int sig, char *c)
 
 void	signal_handler(int sig, siginfo_t *info, void *context)
 {
-	static int	pid;
-	static int	i;
-	static char	c;
+	static int		pid;
+	static int		i;
+	static char		c;
 
 	(void)context;
 	if (pid == 0)
@@ -40,7 +40,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 			pid = 0;
 			return ;
 		}
-		ft_putchar_fd(c, 1);
+		ft_putchar(c);
 		c = 0;
 	}
 	kill(pid, SIGUSR2);

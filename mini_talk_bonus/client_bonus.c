@@ -6,40 +6,30 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:56:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/24 16:43:15 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:27:52 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/mini_talk.h"
-#include "../../inc/ft_printf/ft_printf.h"
+#include "../inc/mini_talk.h"
+#include "../inc/ft_printf/ft_printf.h"
 
 static int	g_receiver;
 
-void	signal_sender(int n, siginfo_t *info, void *context)
+void	signal_sender(int pid, unsigned char c)
 {
-	static int	bits;
+	int				bits;
+	int				i;
+	unsigned char	tmp;
 
-	(void)n;
-	(void)info;
-	(void)context;
-	g_receiver = 1;
-	if (n == SIGUSR2)
-		bits++;
-}
-
-int	ft_ctb(char c, int pid)
-{
-	int	i;
-	int	bit_position;
-
-	bit_position = 7;
-	while (bit_position >= 0)
+	bits = 8;
+	while (bits--)
 	{
-		i = 0;
-		if ((c >> bit_position) & 1)
-			kill(pid, SIGUSR1);
-		else
+		tmp = c >> bits;
+		if (tmp % 2 == 0)
 			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
+		i = 0;
 		while (g_receiver == 0)
 		{
 			if (i == 50)
@@ -48,40 +38,46 @@ int	ft_ctb(char c, int pid)
 			usleep(100);
 		}
 		g_receiver = 0;
-		bit_position--;
 	}
-	return (0);
+}
+
+void	signal_handler(int signum)
+{
+	if (signum == SIGUSR1 || signum == SIGUSR2)
+		g_receiver = 1;
 }
 
 void	issou(int pid)
 {
-	ft_ctb('\n', pid);
-	ft_ctb('\0', pid);
+	signal_sender(pid, '\n');
+	signal_sender(pid, '\0');
 }
 
 int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
-	int					byte_position;
-	int					pid;
+	pid_t				server_pid;
+	char				*message;
+	int					byte;
 
 	if (argc != 3)
 	{
 		ft_printf("Format : ./client <PID> <MESSAGE_TO_SEND>\n");
 		exit(0);
 	}
-	byte_position = 0;
-	pid = ft_atoi(argv[1]);
-	sigemptyset(&sa.sa_mask);
+	server_pid = atoi(argv[1]);
+	message = argv[2];
+	byte = -1;
 	sa.sa_flags = SA_RESTART | SA_SIGINFO;
-	sa.sa_sigaction = signal_sender;
-	ft_printf("Message succesfully sended.\n");
+	sa.sa_handler = signal_handler;
+	sigemptyset(&sa.sa_mask);
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 		ft_printf("Error sigaction\n");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 		ft_printf("Error sigaction\n");
-	while (argv[2][byte_position])
-		ft_ctb(argv[2][byte_position++], pid);
-	issou(pid);
+	while (message[++byte] != '\0')
+		signal_sender(server_pid, message[byte]);
+	issou(server_pid);
+	ft_printf("Message successfully sended !\n");
 	return (0);
 }
